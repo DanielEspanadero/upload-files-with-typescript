@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
     file: Express.Multer.File,
     cb: (error: Error | null, destination: string) => void
   ) {
-    cb(null, uuid /* file.originalname */);
+    cb(null, uuid + file.originalname.substring(file.originalname.lastIndexOf(".")));
   },
 });
 

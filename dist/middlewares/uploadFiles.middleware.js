@@ -12,7 +12,7 @@ const uuid = crypto_1.default.randomUUID();
 const storage = multer_1.default.diskStorage({
     destination: path_1.default.join(__dirname, "../../public/uploads"),
     filename: function (req, file, cb) {
-        cb(null, uuid /* file.originalname */);
+        cb(null, uuid + file.originalname.substring(file.originalname.lastIndexOf(".")));
     },
 });
 // Filterting by mimetypes
